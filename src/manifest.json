@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "DEXOnline.ro - Dictionarul Explicativ al Limbii Romane",
+  "description": "Cauta definitia oricarui cuvant dintr-o pagina web cu ajutorul dexonline.ro, tot ce trebuie sa faci este sa dai dublu click pe acel cuvant.",
+  "version": "0.0.1",
+  "icons": {
+    "128": "icon.png"
+  },
+  "permissions": [
+    "activeTab",
+    "*://dexonline.ro/*"
+  ],
+  "page_action": {
+    "default_icon": "icon.png",
+    "default_title": "DEXOnline.ro Search"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "css": ["style.css"],
+      "js": ["libs/jquery-1.12.1.min.js", "libs/tooltip.min.js", "content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": ["ajax-loader.gif"]
+}

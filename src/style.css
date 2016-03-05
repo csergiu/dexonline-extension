@@ -1,0 +1,148 @@
+/*! tooltip 0.1.0 - 18th Dec 2013 | https://github.com/darsain/tooltip */
+.dexonline-tooltip {
+	position: absolute;
+	z-index: 99999;
+	padding: .8em 1em;
+	font: 13px Arial;
+	top: 10px; /* Defines the spacing between tooltip and target position */
+	max-width: 600px;
+	color: #fff;
+	background: #3a3c47;
+	border-radius: 2px;
+	text-shadow: -1px -1px 0 rgba(0,0,0,.2);
+}
+
+/* Arrow styles */
+.dexonline-tooltip:after {
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	margin: -5px;
+	background: inherit;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.dexonline-tooltip.top:after, .dexonline-tooltip.top-left:after, .dexonline-tooltip.top-right:after { bottom: 0; }
+.dexonline-tooltip.bottom:after, .dexonline-tooltip.bottom-left:after, .dexonline-tooltip.bottom-right:after { top: 0; }
+.dexonline-tooltip.top:after, .dexonline-tooltip.bottom:after { left: 50%; }
+.dexonline-tooltip.top-left:after, .dexonline-tooltip.bottom-left:after { right: 15px; }
+.dexonline-tooltip.top-right:after, .dexonline-tooltip.bottom-right:after { left: 15px; }
+
+.dexonline-tooltip.left:after, .dexonline-tooltip.left-top:after, .dexonline-tooltip.left-bottom:after { right: 0; }
+.dexonline-tooltip.right:after, .dexonline-tooltip.right-top:after, .dexonline-tooltip.right-bottom:after { left: 0; }
+.dexonline-tooltip.left:after, .dexonline-tooltip.right:after { top: 50%; }
+.dexonline-tooltip.left-top:after, .dexonline-tooltip.right-top:after { bottom: 15px; }
+.dexonline-tooltip.left-bottom:after, .dexonline-tooltip.right-bottom:after { top: 15px; }
+
+/* Fade */
+.dexonline-tooltip.fade { opacity: 0; transition: opacity 200ms ease-out; }
+.dexonline-tooltip.fade.in { opacity: 1; transition-duration: 100ms; }
+
+/* Slide */
+.dexonline-tooltip.slide {
+	opacity: 0;
+	transition: -webkit-transform 200ms ease-out;
+	transition: transform 200ms ease-out;
+	transition-property: -webkit-transform, opacity;
+	transition-property: transform, opacity;
+}
+.dexonline-tooltip.slide.top,
+.dexonline-tooltip.slide.top-left,
+.dexonline-tooltip.slide.top-right {
+	-webkit-transform: translateY(15px);
+	transform: translateY(15px);
+}
+.dexonline-tooltip.slide.bottom,
+.dexonline-tooltip.slide.bottom-left,
+.dexonline-tooltip.slide.bottom-right {
+	-webkit-transform: translateY(-15px);
+	transform: translateY(-15px);
+}
+.dexonline-tooltip.slide.left,
+.dexonline-tooltip.slide.left-top,
+.dexonline-tooltip.slide.left-bottom {
+	-webkit-transform: translateX(15px);
+	transform: translateX(15px);
+}
+.dexonline-tooltip.slide.right,
+.dexonline-tooltip.slide.right-top,
+.dexonline-tooltip.slide.right-bottom {
+	-webkit-transform: translateX(-15px);
+	transform: translateX(-15px);
+}
+.dexonline-tooltip.slide.in {
+	opacity: 1;
+	-webkit-transform: none;
+	transform: none;
+	transition-duration: 100ms;
+}
+
+/* Grow */
+.dexonline-tooltip.grow {
+	-webkit-transform: scale(0);
+	transform: scale(0);
+	transition: -webkit-transform 200ms ease-out;
+	transition: transform 200ms ease-out;
+}
+.dexonline-tooltip.grow.top {
+	-webkit-transform: translateY(60%) scale(0);
+	transform: translateY(60%) scale(0);
+}
+.dexonline-tooltip.grow.top-left {
+	-webkit-transform: translateY(60%) translateX(40%) scale(0);
+	transform: translateY(60%) translateX(40%) scale(0);
+}
+.dexonline-tooltip.grow.top-right {
+	-webkit-transform: translateY(60%) translateX(-40%) scale(0);
+	transform: translateY(60%) translateX(-40%) scale(0);
+}
+.dexonline-tooltip.grow.bottom {
+	-webkit-transform: translateY(-60%) scale(0);
+	transform: translateY(-60%) scale(0);
+}
+.dexonline-tooltip.grow.bottom-left {
+	-webkit-transform: translateY(-60%) translateX(40%) scale(0);
+	transform: translateY(-60%) translateX(40%) scale(0);
+}
+.dexonline-tooltip.grow.bottom-right {
+	-webkit-transform: translateY(-60%) translateX(-40%) scale(0);
+	transform: translateY(-60%) translateX(-40%) scale(0);
+}
+.dexonline-tooltip.grow.left {
+	-webkit-transform: translateX(53%) scale(0);
+	transform: translateX(53%) scale(0);
+}
+.dexonline-tooltip.grow.left-top {
+	-webkit-transform: translateX(53%) translateY(40%) scale(0);
+	transform: translateX(53%) translateY(40%) scale(0);
+}
+.dexonline-tooltip.grow.left-bottom {
+	-webkit-transform: translateX(53%) translateY(-40%) scale(0);
+	transform: translateX(53%) translateY(-40%) scale(0);
+}
+.dexonline-tooltip.grow.right {
+	-webkit-transform: translateX(-53%) scale(0);
+	transform: translateX(-53%) scale(0);
+}
+.dexonline-tooltip.grow.right-top {
+	-webkit-transform: translateX(-53%) translateY(40%) scale(0);
+	transform: translateX(-53%) translateY(40%) scale(0);
+}
+.dexonline-tooltip.grow.right-bottom {
+	-webkit-transform: translateX(-53%) translateY(-40%) scale(0);
+	transform: translateX(-53%) translateY(-40%) scale(0);
+}
+.dexonline-tooltip.grow.in {
+	-webkit-transform: none;
+	transform: none;
+	transition-duration: 100ms;
+}
+
+/* Types */
+.dexonline-tooltip.light { color: #3a3c47; background: #fff; text-shadow: none; }
+.dexonline-tooltip.success { background: #8dc572; }
+.dexonline-tooltip.warning { background: #ddc12e; }
+.dexonline-tooltip.error { background: #be6464; }
